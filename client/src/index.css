@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 20 14.3% 4.1%;
+  --muted: 60 4.8% 95.9%;
+  --muted-foreground: 25 5.3% 44.7%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 14.3% 4.1%;
+  --card: 0 0% 100%;
+  --card-foreground: 20 14.3% 4.1%;
+  --border: 20 5.9% 90%;
+  --input: 20 5.9% 90%;
+  --primary: 207 90% 54%;
+  --primary-foreground: 211 100% 99%;
+  --secondary: 60 4.8% 95.9%;
+  --secondary-foreground: 24 9.8% 10%;
+  --accent: 60 4.8% 95.9%;
+  --accent-foreground: 24 9.8% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 60 9.1% 97.8%;
+  --ring: 20 14.3% 4.1%;
+  --radius: 0.5rem;
+  
+  /* Dogecoin palette */
+  --dogeGold: 39 100% 47%;
+  --telegramBlue: 196 100% 47%;
+  --crash: 355 100% 57%;
+  --success: 142 64% 49%;
+  --dark: 0 0% 7%;
+  --darkGray: 0 0% 12%;
+  --lightGray: 210 17% 98%;
+  --mediumGray: 0 0% 18%;
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --primary: 207 90% 54%;
+  --primary-foreground: 211 100% 99%;
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 240 4.9% 83.9%;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-dark text-lightGray;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+@layer components {
+  .multiplier-grow {
+    animation: grow 0.1s ease-in;
+  }
+  
+  @keyframes grow {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+  
+  .crashAnimation {
+    animation: crash 0.5s ease-out;
+  }
+  
+  @keyframes crash {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.5); opacity: 0; }
+  }
+  
+  .line-chart {
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .rocket-animation {
+    transition: transform 0.1s linear;
+  }
+  
+  .shine {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .shine::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+    transform: rotate(30deg);
+    animation: shine 3s infinite;
+  }
+  
+  @keyframes shine {
+    0% { transform: rotate(30deg) translate(-100%, -100%); }
+    100% { transform: rotate(30deg) translate(100%, 100%); }
+  }
+  
+  .input-focus:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px hsl(var(--dogeGold));
+  }
+  
+  .animate-bounce-slow {
+    animation: bounce 2s infinite;
+  }
+  
+  .bg-dogeGold {
+    background-color: hsl(var(--dogeGold));
+  }
+  
+  .bg-telegramBlue {
+    background-color: hsl(var(--telegramBlue));
+  }
+  
+  .bg-crash {
+    background-color: hsl(var(--crash));
+  }
+  
+  .bg-success {
+    background-color: hsl(var(--success));
+  }
+  
+  .bg-dark {
+    background-color: hsl(var(--dark));
+  }
+  
+  .bg-darkGray {
+    background-color: hsl(var(--darkGray));
+  }
+  
+  .bg-mediumGray {
+    background-color: hsl(var(--mediumGray));
+  }
+  
+  .bg-lightGray {
+    background-color: hsl(var(--lightGray));
+  }
+  
+  .text-dogeGold {
+    color: hsl(var(--dogeGold));
+  }
+  
+  .text-telegramBlue {
+    color: hsl(var(--telegramBlue));
+  }
+  
+  .text-crash {
+    color: hsl(var(--crash));
+  }
+  
+  .text-success {
+    color: hsl(var(--success));
+  }
+  
+  .border-dark {
+    border-color: hsl(var(--dark));
+  }
+  
+  .border-mediumGray {
+    border-color: hsl(var(--mediumGray));
+  }
+  
+  .text-lightGray {
+    color: hsl(var(--lightGray));
+  }
+}
